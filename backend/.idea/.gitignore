@@ -1,3 +1,15 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+*
+### Except
+
+# Version Control configuration for your project
+!vcs.xml
+# How IDEA should treat the text files in your project
+!encodings.xml
+# Automatic code formatting
+!codeStyleSettings.xml
+# Project specific words
+!dictionaries
+
+!copyrights
+!misc.xml
+!sqldialects.xml
