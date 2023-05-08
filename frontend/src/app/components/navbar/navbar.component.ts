@@ -34,7 +34,7 @@ export class NavbarComponent {
   getEmployeesList() {
     this._employeeService.getEmployees().subscribe({
       next: (response) => {
-        console.log(response);
+        // console.log(response);
         this.dataSource = new MatTableDataSource(response);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
