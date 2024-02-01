@@ -1,2 +1,2 @@
 # employee-data-protection-using-voltage-web
- Application that stores employee details in the local database while protecting employees' salary details using MicroFocus Voltage Web Services.
+An application to secure employee salary details using AES Format-Preserving Encryption and Secure Stateless Tokenization APIs.
