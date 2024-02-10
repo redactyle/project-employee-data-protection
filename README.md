@@ -28,20 +28,14 @@ Before deploying Employee Data Protection, make sure the following prerequisites
     
     -   Clone the backend repository:
         
-        bashCopy code
-        
         `git clone https://github.com/yourusername/EmployeeDataProtection-backend.git` 
         
     -   Navigate to the backend directory and build the project:
-        
-        bashCopy code
         
         `cd EmployeeDataProtection-backend
         ./mvnw clean install` 
         
     -   Run the backend server:
-        
-        bashCopy code
         
         `./mvnw spring-boot:run` 
         
@@ -49,20 +43,14 @@ Before deploying Employee Data Protection, make sure the following prerequisites
     
     -   Clone the frontend repository:
         
-        bashCopy code
-        
         `git clone https://github.com/yourusername/EmployeeDataProtection-frontend.git` 
         
     -   Navigate to the frontend directory and install dependencies:
-        
-        bashCopy code
         
         `cd EmployeeDataProtection-frontend
         npm install` 
         
     -   Run the frontend application:
-        
-        bashCopy code
         
         `ng serve` 
         
@@ -71,7 +59,7 @@ Before deploying Employee Data Protection, make sure the following prerequisites
 
 ## Usage
 
-1.  Register an account and log in with appropriate credentials.
+1.  Register an account and log in with the appropriate credentials.
 2.  Based on the assigned role, navigate through the application to view or manage salary details securely.
 3.  The application ensures that sensitive information is encrypted or tokenized, providing a secure environment for salary data.
 
