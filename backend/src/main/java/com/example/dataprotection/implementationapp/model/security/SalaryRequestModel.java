@@ -1,4 +1,4 @@
-package com.example.voltage.clientimtation.model.security;
+package com.example.dataprotection.implementationapp.model.security;
 
 import lombok.Data;
 import lombok.Getter;

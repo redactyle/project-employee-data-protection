@@ -8,11 +8,11 @@
 		<version>3.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example.voltage</groupId>
+	<groupId>com.example.data-protectione</groupId>
 	<artifactId>clientimtation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>clientimtation</name>
-	<description>Demo project for Spring Boot using Voltage </description>
+	<name>ImplementationApplication</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -40,7 +40,18 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.30</version>
+			<!--<optional>true</optional>-->
+		</dependency>
+		<dependency>
+			<groupId>com.idealista</groupId>
+			<artifactId>format-preserving-encryption</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.mysto</groupId>
+			<artifactId>ff3</artifactId>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

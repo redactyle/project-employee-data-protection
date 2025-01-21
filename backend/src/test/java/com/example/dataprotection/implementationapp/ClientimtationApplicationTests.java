@@ -1,4 +1,4 @@
-package com.example.voltage.clientimtation;
+package com.example.dataprotection.implementationapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,10 +1,8 @@
-package com.example.voltage.clientimtation.model;
+package com.example.dataprotection.implementationapp.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.math.BigDecimal;
 
 @Entity
 @Table(name="tbl_salary")
@@ -17,5 +15,5 @@ public class SalaryDetails {
     private Long id;
     private String name;
     private String designation;
-    private BigDecimal salary;
+    private String salary;
 }

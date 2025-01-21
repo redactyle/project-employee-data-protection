@@ -1,20 +1,19 @@
-package com.example.voltage.clientimtation;
+package com.example.dataprotection.implementationapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class ClientimtationApplication {
+public class ImplementationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClientimtationApplication.class, args);
+		SpringApplication.run(ImplementationApplication.class, args);
 	}
 
+	/*
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-
+	*/
 }
