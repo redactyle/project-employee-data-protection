@@ -71,10 +71,23 @@ public class SalaryServiceImpl implements SalaryService {
     @Override
     public SalaryDetails findById(Long id) throws IllegalBlockSizeException, BadPaddingException {
         if (salaryRepository.findById(id).isPresent()) {
-            String fakeSalary = salaryRepository.findById(id).get().getSalary();
+//            String fakeSalary = salaryRepository.findById(id).get().getSalary();
 //            BigDecimal decryptedSalary = new BigDecimal(decryptSalary(fakeSalary));
             SalaryDetails actualDetails = salaryRepository.findById(id).get();
-            actualDetails.setSalary(decryptSalary(fakeSalary));
+            String fakeSalary = actualDetails.getSalary();
+            String decryptedSalary = decryptSalary(fakeSalary);
+            actualDetails.setSalary(decryptedSalary);
+
+            String modifiedDecryptedSalary = "";
+
+            if (isNumeric(decryptedSalary)) {
+                // Remove leading zeros
+                modifiedDecryptedSalary = removeLeadingZeros(decryptedSalary);
+            } else {
+                throw new NumberFormatException();
+            }
+
+            actualDetails.setSalary(modifiedDecryptedSalary);
             return actualDetails;
         } else {
             return null;
@@ -167,5 +180,10 @@ public class SalaryServiceImpl implements SalaryService {
             }
         }
         return true;
+    }
+
+    private String removeLeadingZeros(String deccyptedSalary) {
+        deccyptedSalary = deccyptedSalary.replaceFirst("^0+(?!$)", ""); // Regex explanation: ^0+ matches leading zeros (but ensures at least one digit remains)
+        return deccyptedSalary;
     }
 }
