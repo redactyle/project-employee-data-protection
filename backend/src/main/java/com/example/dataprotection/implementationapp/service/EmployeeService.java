@@ -1,17 +1,17 @@
 package com.example.dataprotection.implementationapp.service;
 
-import com.example.dataprotection.implementationapp.model.SalaryDetails;
+import com.example.dataprotection.implementationapp.model.EmployeeDetails;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import java.util.List;
 
-public interface SalaryService {
+public interface EmployeeService {
 
-    List<SalaryDetails> findAll();
-    SalaryDetails save(SalaryDetails salaryDetails) throws IllegalBlockSizeException, BadPaddingException;
-    SalaryDetails findById(Long id) throws IllegalBlockSizeException, BadPaddingException;
-    SalaryDetails update(Long id, SalaryDetails salaryDetails) throws IllegalBlockSizeException, BadPaddingException;
+    List<EmployeeDetails> findAll();
+    EmployeeDetails save(EmployeeDetails employeeDetails) throws IllegalBlockSizeException, BadPaddingException;
+    EmployeeDetails findById(Long id) throws IllegalBlockSizeException, BadPaddingException;
+    EmployeeDetails update(Long id, EmployeeDetails employeeDetails) throws IllegalBlockSizeException, BadPaddingException;
     void delete(Long id);
 
     String encryptSalaryAES(String salary);

@@ -28,8 +28,8 @@
         <ng-container matColumnDef="salary">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary </th>
             <td mat-cell *matCellDef="let row">
-                <div *ngIf="!row.isHidden"> {{row.actualSalary | currency:'INR'}} </div>
-                <div *ngIf="row.isHidden"> {{row.salary | currency:'INR'}} </div>
+                <div *ngIf="!row.isHidden"> {{row.salary | currency:'KWD '}} </div>
+                <div *ngIf="row.isHidden"> {{row.actualSalary | currency:'KWD '}} </div>
             </td>
         </ng-container>
 
@@ -37,7 +37,7 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let row">
-                <button mat-icon-button color="primary" matSuffix (click)="decryptByButton(row, row.isHidden)" [attr.aria-pressed]="row.isHidden">
+                <button mat-icon-button color="primary" matSuffix (click)="decryptByButton(row, !row.isHidden)" [attr.aria-pressed]="!row.isHidden">
                     <mat-icon *ngIf="!row.isHidden">visibility</mat-icon>
                     <mat-icon *ngIf="row.isHidden">visibility_off</mat-icon>
                 </button>

@@ -8,12 +8,12 @@ import { Employee } from '../model/employee';
 })
 export class EmployeeService {
 
-  private getEmployeesURL: string = "http://localhost:8080/api/v1/salarylist";
-  private postSaveEmployeeURL: string = "http://localhost:8080/api/v1/savesalary";
-  private getEmployeeURL: string = "http://localhost:8080/api/v1/getsalary";
-  private deleteEmployeeURL: string = "http://localhost:8080/api/v1/deletesalary"
-  private putUpdateEmployeeURL: string = "http://localhost:8080/api/v1/updatesalary";
-  private postGetActualDataURL: string = "http://localhost:8080/api/v1/getactualsalary";
+  private getEmployeesURL: string = "http://localhost:8080/api/v1/getallemployees";
+  private postSaveEmployeeURL: string = "http://localhost:8080/api/v1/saveemployee";
+  private getEmployeeURL: string = "http://localhost:8080/api/v1/getemployee";
+  private deleteEmployeeURL: string = "http://localhost:8080/api/v1/deleteemployee"
+  private putUpdateEmployeeURL: string = "http://localhost:8080/api/v1/updateemployee";
+  private postGetActualDataURL: string = "http://localhost:8080/api/v1/decryptsalary";
 
   constructor(private _httpClient: HttpClient) { }
 

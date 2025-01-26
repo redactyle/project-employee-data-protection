@@ -50,11 +50,13 @@ export class EmployeeTableComponent implements OnInit {
   getActualSalary(id: number) : number {
     this._employeeService.getEmployee(id).subscribe({
       next: (response) => {
-        // console.log(response);
+        console.log(response);
         this.actualSalary = Number(response.salary);
-        // console.log(this.actualSalary);
+        console.log(this.actualSalary);
       }
     })
+    console.log(this.actualSalary);
+    this.actualSalary = this.actualSalary;
     // this.actualSalary = 500000;
     return this.actualSalary;
   }
@@ -86,9 +88,9 @@ export class EmployeeTableComponent implements OnInit {
 
   decryptByButton(row: any, hidden: boolean) {
     row.isHidden = !row.isHidden;
-    // console.log(row.isHidden);
+    console.log(!row.isHidden);
     // console.log(row.id);
-    this.actualSalary = 0;
+    // this.actualSalary = 0;
     this.actualSalary = this.getActualSalary(row.id);
   }
 }

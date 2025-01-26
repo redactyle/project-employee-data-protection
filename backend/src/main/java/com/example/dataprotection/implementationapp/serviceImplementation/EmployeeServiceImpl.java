@@ -1,9 +1,9 @@
 package com.example.dataprotection.implementationapp.serviceImplementation;
 
 import com.example.dataprotection.implementationapp.Constants;
-import com.example.dataprotection.implementationapp.model.SalaryDetails;
-import com.example.dataprotection.implementationapp.repository.SalaryRepository;
-import com.example.dataprotection.implementationapp.service.SalaryService;
+import com.example.dataprotection.implementationapp.model.EmployeeDetails;
+import com.example.dataprotection.implementationapp.repository.EmployeeRepository;
+import com.example.dataprotection.implementationapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-public class SalaryServiceImpl implements SalaryService {
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    SalaryRepository salaryRepository;
+    EmployeeRepository employeeRepository;
 
     @Autowired
     ProtectionService protectionService;
@@ -26,18 +26,18 @@ public class SalaryServiceImpl implements SalaryService {
     RestTemplate restTemplate;
     */
 
-    public SalaryServiceImpl(SalaryRepository salaryRepository, ProtectionService protectionService) {
-        this.salaryRepository = salaryRepository;
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ProtectionService protectionService) {
+        this.employeeRepository = employeeRepository;
         this.protectionService = protectionService;
     }
 
     @Override
-    public List<SalaryDetails> findAll() {
-        return salaryRepository.findAll();
+    public List<EmployeeDetails> findAll() {
+        return employeeRepository.findAll();
     }
 
     @Override
-    public SalaryDetails save(SalaryDetails salaryDetails) throws IllegalBlockSizeException, BadPaddingException {
+    public EmployeeDetails save(EmployeeDetails employeeDetails) throws IllegalBlockSizeException, BadPaddingException {
         /*String[] salary = new String[1];
         salary[0] = salaryDetails.getSalary().toString();*/
 
@@ -48,7 +48,7 @@ public class SalaryServiceImpl implements SalaryService {
         /*BigDecimal encryptedSalary = new BigDecimal(encryptSalary(salaryDetails.getSalary()));
         salaryDetails.setSalary(encryptedSalary);*/
 
-        String input = salaryDetails.getSalary();
+        String input = employeeDetails.getSalary();
         String modifiedSalary = "";
 
         if (isNumeric(input)) {
@@ -63,17 +63,17 @@ public class SalaryServiceImpl implements SalaryService {
             throw new NumberFormatException();
         }
 
-        salaryDetails.setSalary(encryptSalary(modifiedSalary));
-        salaryRepository.save(salaryDetails);
-        return salaryDetails;
+        employeeDetails.setSalary(encryptSalary(modifiedSalary));
+        employeeRepository.save(employeeDetails);
+        return employeeDetails;
     }
 
     @Override
-    public SalaryDetails findById(Long id) throws IllegalBlockSizeException, BadPaddingException {
-        if (salaryRepository.findById(id).isPresent()) {
+    public EmployeeDetails findById(Long id) throws IllegalBlockSizeException, BadPaddingException {
+        if (employeeRepository.findById(id).isPresent()) {
 //            String fakeSalary = salaryRepository.findById(id).get().getSalary();
 //            BigDecimal decryptedSalary = new BigDecimal(decryptSalary(fakeSalary));
-            SalaryDetails actualDetails = salaryRepository.findById(id).get();
+            EmployeeDetails actualDetails = employeeRepository.findById(id).get();
             String fakeSalary = actualDetails.getSalary();
             String decryptedSalary = decryptSalary(fakeSalary);
             actualDetails.setSalary(decryptedSalary);
@@ -95,22 +95,22 @@ public class SalaryServiceImpl implements SalaryService {
     }
 
     @Override
-    public SalaryDetails update(Long id, SalaryDetails salaryDetails) throws IllegalBlockSizeException, BadPaddingException {
-        SalaryDetails actualDetails = findById(id);
-        if (Objects.nonNull(salaryDetails.getName())
+    public EmployeeDetails update(Long id, EmployeeDetails employeeDetails) throws IllegalBlockSizeException, BadPaddingException {
+        EmployeeDetails actualDetails = findById(id);
+        if (Objects.nonNull(employeeDetails.getName())
                 && !"".equalsIgnoreCase(
-                salaryDetails.getName())) {
-            actualDetails.setName(salaryDetails.getName());
+                employeeDetails.getName())) {
+            actualDetails.setName(employeeDetails.getName());
         }
-        if (Objects.nonNull(salaryDetails.getDesignation())
+        if (Objects.nonNull(employeeDetails.getDesignation())
                 && !"".equalsIgnoreCase(
-                salaryDetails.getDesignation())) {
-            actualDetails.setDesignation(salaryDetails.getDesignation());
+                employeeDetails.getDesignation())) {
+            actualDetails.setDesignation(employeeDetails.getDesignation());
         }
-        if (Objects.nonNull(salaryDetails.getSalary())
+        if (Objects.nonNull(employeeDetails.getSalary())
                 && !"".equalsIgnoreCase(
-                salaryDetails.getSalary())) {
-            actualDetails.setSalary(salaryDetails.getSalary());
+                employeeDetails.getSalary())) {
+            actualDetails.setSalary(employeeDetails.getSalary());
         }
 
         return save(actualDetails);
@@ -118,8 +118,8 @@ public class SalaryServiceImpl implements SalaryService {
 
     @Override
     public void delete(Long id) {
-        SalaryDetails salaryDetails = salaryRepository.findById(id).get();
-        salaryRepository.delete(salaryDetails);
+        EmployeeDetails employeeDetails = employeeRepository.findById(id).get();
+        employeeRepository.delete(employeeDetails);
     }
 
     @Override
