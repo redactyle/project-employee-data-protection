@@ -4,13 +4,13 @@ Employee Data Protection is a robust application designed to ensure the utmost s
 
 ## Features
 
--   **AES Format-Preserving Encryption:** Employee Data Protection employs the Advanced Encryption Standard (AES) with Format-Preserving Encryption (FPE) to encrypt employee salary details. This ensures that the encrypted data maintains its original format, allowing for secure storage and retrieval.
+-   **AES-256 Encryption with Salted Key Derivation:** Employee salary data is protected using AES-256 encryption in CBC mode with PKCS5 padding. The encryption key is derived using PBKDF2 with HMAC-SHA256, incorporating a salt for enhanced security. This ensures strong symmetric encryption for sensitive fields like salary.
     
--   **Secure Stateless Tokenization:** The application incorporates Secure Stateless Tokenization (SST) to tokenize sensitive information securely. This process generates unique tokens for each piece of sensitive data, enhancing the security of employee salary details.
+-   **Format-Preserving Encryption (FPE):** The application uses Format-Preserving Encryption (FPE) via the FF3 algorithm to securely encrypt structured numeric data such as salaries while retaining their original format. This allows encrypted values to remain compatible with database constraints and data validation rules.
     
--   **Spring Boot Backend:** The backend of Employee Data Protection is built using the Spring Boot framework, providing a scalable and efficient server-side solution. It handles API requests, interacts with the MySQL database, and ensures the overall functionality of the application.
+-   **Spring Boot Backend:** Built on the Spring Boot framework, the backend handles API requests, manages encryption/decryption logic, and interacts with the MySQL database efficiently. It serves as the core processing engine for secure employee data handling.
     
--   **Angular Frontend:** The frontend of the application is developed using Angular, offering a responsive and intuitive user interface. Users can securely log in, navigate through the application, and interact with encrypted or tokenized salary information.
+-   **Angular Frontend:** The frontend is developed using Angular, offering a responsive, modern user interface. It allows users to log in, interact with encrypted salary information, and manage employee data in a secure and intuitive way.
 
 ## Prerequisites
 
@@ -19,8 +19,6 @@ Before deploying Employee Data Protection, make sure the following prerequisites
 -   Java Development Kit (JDK) 11 or higher
 -   Node.js and npm (for Angular)
 -   MySQL database
--   AES Format-Preserving Encryption API access
--   Secure Stateless Tokenization API access
 
 ## Installation
 
@@ -65,7 +63,7 @@ Before deploying Employee Data Protection, make sure the following prerequisites
 
 ## Contributing
 
-Contributions to Employee Data Protection are welcome. Please follow the [contribution guidelines](https://chat.openai.com/c/CONTRIBUTING.md) when submitting changes.
+Contributions to Employee Data Protection are welcome.
 
 ## License
 
